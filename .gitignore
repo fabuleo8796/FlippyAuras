@@ -1,0 +1,13 @@
+_private/
+build/
+bin/
+obj/
+unity/Library/
+unity/Logs/
+unity/Temp/
+unity/UserSettings/
+unity/obj/
+unity/*.csproj
+unity/*.sln
+mockups/
+probe/bin/
