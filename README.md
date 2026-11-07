@@ -1,10 +1,12 @@
-# Flippy Auras (0.1.0)
+# Flippy Auras (0.2.0)
 
 Effects around Flippy for Flipping is Hard (BepInEx 6 IL2CPP), by Fabuleo8796: lightning, ghosts, orbiting shapes,
 flames, sparkles and a halo. You can run up to 3 at once. Each one has its own colours, glow, size, speed, amount and
 radius, and they react to what Flippy does.
 
-Everything is client-side, so it's safe in multiplayer. Other players don't see your auras.
+Everything is client-side, so it's safe in multiplayer. Other players don't see your auras, unless you both run
+[FIH Sync](https://github.com/Fabuleo8796/FIHSync): then modded players see each other's auras automatically.
+Other players' sliders are kept inside the panel's ranges, and FIH Sync's lag shield hides auras that cost too much.
 
 ## The auras
 
@@ -63,7 +65,7 @@ SOON tag.
 
 You need Flipping is Hard with BepInEx 6 (IL2CPP).
 
-Download `FlippyAuras-v0.1.0.zip` from the releases and extract it into the game folder (the one with
+Download `FlippyAuras-v0.2.0.zip` from the releases and extract it into the game folder (the one with
 `Flipping is Hard.exe`). You should end up with `BepInEx\plugins\FlippyAuras\FlippyAuras.dll` and
 `flippyauras_shaders` next to it. Both files are needed: the second one is the glow shader.
 
@@ -108,6 +110,8 @@ If something looks wrong, open an issue with your `BepInEx\LogOutput.log` and a 
 | `src/Draw.cs` | `Quads` (camera-facing quad meshes) and `Particles` (the particle pool) |
 | `src/Glow.cs` | Loads the shader, makes materials, draws the shape atlas |
 | `src/Look.cs` | Slots, colours, presets, Randomize, saving to JSON |
+| `src/SyncLink.cs` | Other players' auras through FIH Sync (optional) |
+| `lib/FIHSync.dll` | FIH Sync, built against (a soft dependency: Flippy Auras runs without it) |
 | `src/Panel.cs` | The J panel |
 | `src/Ui.cs` | UI pieces (Geist font, rounded shapes, sliders, switches, toast) |
 | `src/GameControls.cs` | Pauses the game's input while the panel is open |
