@@ -5,7 +5,7 @@ flames, sparkles and a halo. You can run up to 3 at once. Each one has its own c
 radius, and they react to what Flippy does.
 
 Everything is client-side, so it's safe in multiplayer. Other players don't see your auras, unless you both run
-[FIH Sync](https://github.com/Fabuleo8796/FIHSync): then modded players see each other's auras automatically.
+**FIH Sync** (coming soon): then modded players see each other's auras automatically.
 Other players' sliders are kept inside the panel's ranges, and FIH Sync's lag shield hides auras that cost too much.
 
 ## The auras
