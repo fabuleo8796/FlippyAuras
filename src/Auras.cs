@@ -569,4 +569,12 @@ internal sealed class AuraStack
     {
         if (root != null && root.activeSelf) root.SetActive(false);
     }
+
+    /// For another player's auras (FIH Sync), when they leave or change their look.
+    public void Destroy()
+    {
+        for (int k = 0; k < 3; k++) { auras[k]?.Destroy(); auras[k] = null; }
+        if (root != null) Object.Destroy(root);
+        root = null;
+    }
 }

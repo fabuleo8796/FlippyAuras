@@ -26,6 +26,7 @@ public class AuraDriver : MonoBehaviour
     float costAt;
     bool panelBuilt;
 
+    internal Look Look => look;
     internal double CostMs;
     internal int Particles;
     internal bool Drawing;
@@ -43,6 +44,7 @@ public class AuraDriver : MonoBehaviour
         Instance = this;
         look = Presets.LoadCurrent();
         stack = new AuraStack(look);
+        SyncLink.Start();
     }
 
     void Update()
@@ -101,6 +103,7 @@ public class AuraDriver : MonoBehaviour
         {
             watch.Restart();
             Drawing = stack.Tick(player, Time.deltaTime);
+            SyncLink.Tick(Time.deltaTime);
             if (Drawing)
             {
                 ticks += watch.ElapsedTicks;
