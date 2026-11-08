@@ -11,6 +11,8 @@ namespace FlippyAuras;
 internal sealed class Events
 {
     float lastJump = -1f, lowestVy, stillFor;
+    NV3 last;
+    bool hadLast;
     bool grounded, groundedKnown;
     IntPtr player;
     Transform visual;
@@ -32,6 +34,7 @@ internal sealed class Events
             lastJump = -1f;
             groundedKnown = false;
             HasCenter = false;
+            hadLast = false;
         }
         if (visual == null) visual = p.transform;
         var c = visual.position; // the phone's middle (the probe found the visuals root right at it)
@@ -46,7 +49,15 @@ internal sealed class Events
             lastJump = t;
         }
         var rb = p.rb;
-        var vel = rb != null ? rb.linearVelocity : Vector3.zero;
+        Vector3 vel;
+        if (rb != null && !rb.isKinematic) vel = rb.linearVelocity;
+        else
+        {
+            // another player's phone (FIH Sync): moved by the network, so measure how fast it moves instead
+            vel = hadLast && dt > 0f ? new Vector3((Center.X - last.X) / dt, (Center.Y - last.Y) / dt, (Center.Z - last.Z) / dt) : Vector3.zero;
+        }
+        last = Center;
+        hadLast = true;
         Speed = MathF.Sqrt(vel.x * vel.x + vel.y * vel.y + vel.z * vel.z);
         if (vel.y < lowestVy) lowestVy = vel.y;
         // 5 m/s down is an ordinary hop; from 20 m/s it's all-out
