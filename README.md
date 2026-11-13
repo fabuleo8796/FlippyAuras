@@ -8,6 +8,8 @@ Everything is client-side, so it's safe in multiplayer. Other players don't see 
 **[FIH Sync](https://github.com/Fabuleo8796/FIHSync)**: then modded players see each other's auras automatically.
 Other players' sliders are kept inside the panel's ranges, and FIH Sync's lag shield hides auras that cost too much.
 
+> **FIH Sync comes included** (since 0.2.2): `FIHSync.dll` is in the mod's folder, so sharing with other modded players works without installing anything else. With several of my mods installed, BepInEx runs only one copy of it (the newest).
+
 ## The auras
 
 | Aura | What it looks like |
@@ -65,9 +67,10 @@ SOON tag.
 
 You need Flipping is Hard with BepInEx 6 (IL2CPP).
 
-Download `FlippyAuras-v0.2.1.zip` from the releases and extract it into the game folder (the one with
+Download `FlippyAuras-v0.2.2.zip` from the releases and extract it into the game folder (the one with
 `Flipping is Hard.exe`). You should end up with `BepInEx\plugins\FlippyAuras\FlippyAuras.dll` and
-`flippyauras_shaders` next to it. Both files are needed: the second one is the glow shader.
+`flippyauras_shaders` next to it (both are needed: the second one is the glow shader), plus `FIHSync.dll` for
+sharing.
 
 ## Good to know
 

@@ -14,7 +14,7 @@ namespace FlippyAuras;
 /// Flippy Auras for Flipping is Hard: effects around Flippy (lightning, ghosts, orbiters, flames, sparkles, a halo),
 /// up to 3 at once, each with its own colours, size, speed and amount, reacting to jumps, falls and landings.
 /// J opens the panel, Shift+J turns the auras on and off. With FIH Sync installed, other modded players see them too.
-[BepInPlugin(Guid, "Flippy Auras", "0.2.1")]
+[BepInPlugin(Guid, "Flippy Auras", "0.2.2")]
 [BepInDependency("com.fabuleo8796.fihsync", BepInDependency.DependencyFlags.SoftDependency)]
 public class Plugin : BasePlugin
 {
